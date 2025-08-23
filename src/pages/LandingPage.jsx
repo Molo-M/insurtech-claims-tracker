@@ -1,6 +1,5 @@
 import Header from "../components/header"
 import Footer from "../components/footer"
-import Dashboard from "./DashboardPage";
 import { useNavigate } from 'react-router-dom'
 
 export default function LandingPage() {
@@ -17,7 +16,7 @@ export default function LandingPage() {
                 <h1 className='font-bold text-2xl sm:text-5xl'>Simplify Insurance Claims Tracking</h1>
                 <h2 className='text-2xl'>Submit claims, track progress, and stay updated in real time.</h2>
                 <div className="buttons mt-5 flex gap-5">
-                    <button onClick={handleClick} className="py-2 w-40 cursor-pointer font-bold rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border border-blue-900">Login as User</button>
+                    <button onClick={handleClick} className="py-2 w-40 cursor-pointer font-bold rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border-blue-900">Login as User</button>
                     <button onClick={handleClick} className="py-2 w-40 cursor-pointer font-bold rounded-xl border border-gray-400 hover:bg-gray-100">Login as Agent</button>
                 </div>
                 </div>
