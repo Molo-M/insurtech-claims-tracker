@@ -10,6 +10,10 @@
     .input_file input {
         @apply file:cursor-pointer text-gray-600 file:border file:shadow-sm file:py-1 file:px-2 file:border-gray-400 file:rounded-sm;
     }
+
+    .filter button {
+        @apply py-1 border shadow-sm border-gray-400 rounded-sm text-sm w-30 bg-white;
+    }
 }
 
 @layer utilities {
