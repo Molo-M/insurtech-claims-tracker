@@ -1,16 +1,18 @@
-import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { useNavigate } from 'react-router-dom'
 
 export default function LandingPage() {
     const navigate = useNavigate();
 
-      const handleClick = () => {
-        navigate('/dashboard'); // Navigates to the /dashboard route
-      };
+    const handleClick = () => {
+    navigate('/dashboard'); // Navigates to the /dashboard route
+    };
     return (
         <>
-            <Header />
+            <header className="flex gap-2 items-center ml-3 sm:ml-58 pt-2 pb-3 sm:pb-10">
+                <img className="w-5" src="./Logo-edited.png" alt="" />
+                <h1 className="font-semibold text-xl">InsurTech Claims Tracker</h1>
+            </header>
             <main className='py-5 text-gray-800 flex flex-col sm:flex-row items-center justify-center sm:gap-15 px-10'>
                 <div className="left-hero flex flex-col gap-4 sm:w-110">
                 <h1 className='font-bold text-2xl sm:text-5xl'>Simplify Insurance Claims Tracking</h1>
