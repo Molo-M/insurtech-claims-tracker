@@ -1,6 +1,6 @@
 export default function ClaimsForm() {
     return (
-        <section className="w-130 border border-gray-400 shadow-md p-5 flex flex-col gap-3 rounded-sm">
+        <section className="w-130 bg-white border border-gray-400 shadow-md p-5 flex flex-col gap-3 rounded-sm">
             <h1 className="font-semibold text-2xl">Claim Submission Form</h1>
             <p className="text-gray-600">Fill out the form below to submit a new insurance claim.</p>
             <form className="flex flex-col gap-4" action="">
