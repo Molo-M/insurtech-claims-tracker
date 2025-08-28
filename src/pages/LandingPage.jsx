@@ -7,6 +7,11 @@ export default function LandingPage() {
     const handleClick = () => {
     navigate('/dashboard'); // Navigates to the /dashboard route
     };
+
+    // For the login as agent message
+    function showMessage() {
+        alert("Sorry! The agent user interface is still in production. Coming soon.....")
+    }
     return (
         <>
             <header className="flex gap-2 items-center ml-3 sm:ml-58 pt-2 pb-3 sm:pb-10">
@@ -19,7 +24,7 @@ export default function LandingPage() {
                 <h2 className='text-2xl'>Submit claims, track progress, and stay updated in real time.</h2>
                 <div className="buttons mt-5 flex gap-5">
                     <button onClick={handleClick} className="py-2 w-40 cursor-pointer font-bold rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border-blue-900">Login as User</button>
-                    <button onClick={handleClick} className="py-2 w-40 cursor-pointer font-bold rounded-xl border border-gray-400 hover:bg-gray-100">Login as Agent</button>
+                    <button onClick={showMessage} className="py-2 w-40 cursor-pointer font-bold rounded-xl border border-gray-400 hover:bg-gray-100">Login as Agent</button>
                 </div>
                 </div>
                 <div className="right-hero mt-5 sm:mt-0">
