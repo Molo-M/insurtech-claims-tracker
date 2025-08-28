@@ -1,6 +1,6 @@
 import ClaimCard from "../components/claimCard"
 import { useNavigate } from 'react-router-dom'
-import claimsData from "../claimsData"
+import data from "../claimsData"
 import ClaimsForm from "../components/ClaimsForm"
 import { useState } from "react"
 
@@ -9,6 +9,32 @@ export default function Dashboard() {
     const navigate = useNavigate()
     const handleClick = () => {
     navigate('/'); // Navigates to the /dashboard route
+    }
+
+    // Functionality for filtering the claim cards
+    const buttonColors = {
+        "All": false,
+        "Submitted": false,
+        "In Review": false,
+        "Approved": false,
+        "Rejected": false
+    }
+    const [filterColor, setFilterColor] = useState(buttonColors)
+    const [claimsData, setClaimsData] = useState(data)
+    function filterClaim(event) {
+        // Filter the claims data first
+        const buttonValue = event.target.value
+        if (buttonValue !== "All") {
+            setClaimsData(data)
+            setClaimsData(prevItem => prevItem.filter(claim => claim.status === buttonValue))
+        }
+        else {setClaimsData(data)}
+        // Change background color of filter when it is "on"
+        setFilterColor(buttonColors)
+        setFilterColor(prevItem => ({
+            ...prevItem,
+            [buttonValue]: !prevItem[buttonValue]
+        }))
     }
 
     // Pull claims data to display it on dashboard
@@ -48,11 +74,11 @@ export default function Dashboard() {
                     </div>
                     <h2 className="text-gray-400">{claimsData.length} claims submitted</h2>
                     <nav className="filter flex justify-between mb-5">
-                        <button>All</button>
-                        <button>Submitted</button>
-                        <button>In Review</button>
-                        <button>Approved</button>
-                        <button>Rejected</button>
+                        <button onClick={filterClaim} className={filterColor["All"] ? "bg-gray-200" : "bg-white"} value="All">All</button>
+                        <button onClick={filterClaim} className={filterColor["Submitted"] ? "bg-gray-200" : "bg-white"} value="Submitted">Submitted</button>
+                        <button onClick={filterClaim} className={filterColor["In Review"] ? "bg-gray-200" : "bg-white"} value="In Review">In Review</button>
+                        <button onClick={filterClaim} className={filterColor["Approved"] ? "bg-gray-200" : "bg-white"} value="Approved">Approved</button>
+                        <button onClick={filterClaim} className={filterColor["Rejected"] ? "bg-gray-200" : "bg-white"} value="Rejected">Rejected</button>
                     </nav>
                     <section className="grid grid-cols-2 gap-10 items-start">
                         {claims}

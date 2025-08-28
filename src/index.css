@@ -12,7 +12,7 @@
     }
 
     .filter button {
-        @apply py-1 border shadow-sm border-gray-400 rounded-sm text-sm w-27 bg-white;
+        @apply py-1 border shadow-sm border-gray-400 rounded-sm text-sm w-27 hover:bg-gray-200 cursor-pointer;
     }
 }
 
