@@ -25,7 +25,6 @@ export default function Dashboard() {
     function showForm() {
         setFormVisible(prevItem => !prevItem)
     }
-    console.log(formVisible)
     return (
         <div className="body flex flex-col">
             <header className="flex py-3 px-7 items-center justify-end sm:gap-120 text-white bg-gray-700">
