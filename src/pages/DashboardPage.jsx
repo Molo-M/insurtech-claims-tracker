@@ -44,7 +44,7 @@ export default function Dashboard() {
                         <h1 className="text-3xl font-semibold">My Claims</h1>
                         <button onClick={showForm} className="py-1 w-40 cursor-pointer rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border-blue-900">Add New Claim</button>
                     </div>
-                    <h2 className="text-gray-400">5 claims submitted</h2>
+                    <h2 className="text-gray-400">{claimsData.length} claims submitted</h2>
                     <nav className="filter flex justify-between mb-5">
                         <button>All</button>
                         <button>Submitted</button>
