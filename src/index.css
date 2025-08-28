@@ -23,4 +23,7 @@
     form label {
         @apply mb-1;
     }
+    /* body {
+        @apply bg-gray-100;
+    } */
 }

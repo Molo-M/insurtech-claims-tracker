@@ -14,10 +14,13 @@ export default function Dashboard() {
     // Pull claims data to display it on dashboard
     const claims = claimsData.map(item => 
         <ClaimCard
+            key = {item.policyNum}
             policyNum = {item.policyNum}
             incidentType = {item.incidentType}
             date = {item.date}
             status = {item.status}
+            description = {item.description}
+            img = {item.imgUrl}
         />)
     
     // Functionality for showing the claims form when you click on "Add New Claim" button
@@ -26,7 +29,7 @@ export default function Dashboard() {
         setFormVisible(prevItem => !prevItem)
     }
     return (
-        <div className="body flex flex-col">
+        <div className="dashboard_body flex flex-col bg-gray-100 border h-screen">
             <header className="flex py-3 px-7 items-center justify-end sm:gap-120 text-white bg-gray-700">
                 <div className="title flex gap-2">
                     <img className="w-5" src="./Logo-edited.png" alt="" />
@@ -37,7 +40,7 @@ export default function Dashboard() {
                     <button className="text-lg cursor-pointer hover:font-semibold" onClick={handleClick}>Logout</button>
                 </div>
             </header>
-            <main className="flex flex-col gap-4 items-center py-5 bg-gray-100 h-screen">
+            <main className="flex flex-col gap-4 items-center py-5 bg-gray-100">
                 <div className="dashboard flex flex-col gap-4">
                     <div className="header flex justify-between items-center">
                         <h1 className="text-3xl font-semibold">My Claims</h1>
@@ -51,7 +54,7 @@ export default function Dashboard() {
                         <button>Approved</button>
                         <button>Rejected</button>
                     </nav>
-                    <section className="grid grid-cols-2 gap-10">
+                    <section className="grid grid-cols-2 gap-10 items-start">
                         {claims}
                     </section>
                 </div>
