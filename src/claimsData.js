@@ -2,7 +2,7 @@ export default [
     {
         policyNum: 123456,
         incidentType: "Car",
-        date: "Aug 18, 2025",
+        date: "2025-08-18",
         description: "Delivery truck collided with my truck",
         imgUrl: "crash.jpg",
         status: "Submitted"
@@ -10,7 +10,7 @@ export default [
     {
         policyNum: 7891011,
         incidentType: "Health",
-        date: "Aug 24, 2025",
+        date: "2025-08-24",
         description: "Lost my front tooth in a fight",
         imgUrl: "man-falling-down-stairs.jpg",
         status: "In Review"
@@ -18,7 +18,7 @@ export default [
     {
         policyNum: 654321,
         incidentType: "Car",
-        date: "Aug 18, 2025",
+        date: "2025-08-18",
         description: "Delivery truck collided with my truck",
         imgUrl: "crash.jpg",
         status: "Approved"
@@ -26,7 +26,7 @@ export default [
     {
         policyNum: 9374651,
         incidentType: "Health",
-        date: "Aug 24, 2025",
+        date: "2025-08-24",
         description: "Lost my front tooth in a fight",
         imgUrl: "man-falling-down-stairs.jpg",
         status: "Rejected"
