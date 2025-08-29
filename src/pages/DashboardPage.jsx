@@ -22,20 +22,26 @@ export default function Dashboard() {
     const [filterColor, setFilterColor] = useState(buttonColors)
     const [claimsData, setClaimsData] = useState(data)
     function filterClaim(event) {
-        // Filter the claims data first
-        const buttonValue = event.target.value
-        if (buttonValue !== "All") {
-            setClaimsData(data)
-            setClaimsData(prevItem => prevItem.filter(claim => claim.status === buttonValue))
+        const buttonValue = event.target.value;
+
+        // Step 1: filter claims
+        if (buttonValue === "All") {
+            setClaimsData(data);
+        } else {
+            setClaimsData(data.filter(claim => claim.status === buttonValue));
         }
-        else {setClaimsData(data)}
-        // Change background color of filter when it is "on"
-        setFilterColor(buttonColors)
-        setFilterColor(prevItem => ({
-            ...prevItem,
-            [buttonValue]: !prevItem[buttonValue]
-        }))
+
+        // Step 2: reset colors and activate only the clicked button
+        setFilterColor({
+            "All": false,
+            "Submitted": false,
+            "In Review": false,
+            "Approved": false,
+            "Rejected": false,
+            [buttonValue]: true  // highlight the clicked button
+        });
     }
+
 
     // Pull claims data to display it on dashboard
     const claims = claimsData.map(item => 
@@ -55,10 +61,14 @@ export default function Dashboard() {
         setFormVisible(prevItem => !prevItem)
     }
 
-    // Functionality for receiving data from claims form
+    // Function for adding new claim to be passed down to the claimsForm component
+    function addNewClaim(newClaim) {
+        data.push(newClaim)
+    }
+
+    // Functionality for receiving data about closing form from claims form
     const handleChildData = (data) => {
         setFormVisible(data);
-        console.log('Data received from child:', data);
       }
     return (
         <div className="dashboard_body flex flex-col bg-gray-100 border h-screen">
@@ -93,7 +103,7 @@ export default function Dashboard() {
             </main>
             {/* showing the form for adding new claims  */}
             {formVisible && <section className="form flex  fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <ClaimsForm onSendData={handleChildData} />
+                <ClaimsForm onSendData={handleChildData} onAddClaim={addNewClaim}/>
                 <button onClick={showForm} className="font-semibold text-xl cursor-pointer fixed top-5 right-5">x</button>
             </section>}
         </div>

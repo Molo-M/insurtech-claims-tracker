@@ -1,6 +1,6 @@
 import claimsData from "../claimsData"
 
-export default function ClaimsForm({ onSendData }) {
+export default function ClaimsForm({ onSendData, onAddClaim }) {
     // Function for adding claim
     function addClaim(formData) {
         // get user input
@@ -8,14 +8,16 @@ export default function ClaimsForm({ onSendData }) {
         const incidentType = formData.get("incidentType")
         const incidentDate = formData.get("incidentDate")
         const description = formData.get("description")
-        // add the input to the claims data
-        claimsData.push({
+        // Create a new claim object
+        const newClaim = {
             policyNum: policyNumber,
             incidentType: incidentType,
             date: incidentDate,
             description: description,
             status: "Submitted"
-        })
+        }
+        // Pass in the new claim to dashboard's state updater
+        onAddClaim(newClaim)
     }
 
     // Handle form submit
