@@ -1,6 +1,6 @@
 import claimsData from "../claimsData"
 
-export default function ClaimsForm() {
+export default function ClaimsForm({ onSendData }) {
     // Function for adding claim
     function addClaim(formData) {
         // get user input
@@ -24,6 +24,7 @@ export default function ClaimsForm() {
         const formData = new FormData(event.target)
         addClaim(formData) // ⬅ Adds the form data to the claims data
         alert("You have added a new claim successfully!")
+        onSendData(false) // Call the dashboard's callback function
     }
 
     // Function for adding submission message

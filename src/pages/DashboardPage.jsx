@@ -54,6 +54,12 @@ export default function Dashboard() {
     function showForm() {
         setFormVisible(prevItem => !prevItem)
     }
+
+    // Functionality for receiving data from claims form
+    const handleChildData = (data) => {
+        setFormVisible(data);
+        console.log('Data received from child:', data);
+      }
     return (
         <div className="dashboard_body flex flex-col bg-gray-100 border h-screen">
             <header className="flex py-3 px-7 items-center justify-end sm:gap-120 text-white bg-gray-700">
@@ -87,7 +93,7 @@ export default function Dashboard() {
             </main>
             {/* showing the form for adding new claims  */}
             {formVisible && <section className="form flex  fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <ClaimsForm />
+                <ClaimsForm onSendData={handleChildData} />
                 <button onClick={showForm} className="font-semibold text-xl cursor-pointer fixed top-5 right-5">x</button>
             </section>}
         </div>
