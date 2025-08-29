@@ -42,9 +42,19 @@ export default function Dashboard() {
         });
     }
 
+    // Functionality for filtering through the search input
+    const [searchQuery, setSearchQuery] = useState("")
+    // combine claimsData with search filter
+    const filteredClaims = claimsData.filter(item =>
+        item.policyNum.toString().includes(searchQuery.toLowerCase()) ||
+        item.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.incidentType.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.status.toLowerCase().includes(searchQuery.toLowerCase())
+    )
 
     // Pull claims data to display it on dashboard
-    const claims = claimsData.map(item => 
+    const claims = filteredClaims.map(item => 
         <ClaimCard
             key = {item.policyNum}
             policyNum = {item.policyNum}
@@ -78,7 +88,7 @@ export default function Dashboard() {
                     <h1 className="font-semibold text-xl">InsurTech Claims Tracker</h1>
                 </div>
                 <div className="logSearch flex gap-7">
-                    <input className="border border-gray-300 rounded-sm p-1" type="search" name="" id="" placeholder="Search" />
+                    <input className="border border-gray-300 rounded-sm p-1" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search" />
                     <button className="text-lg cursor-pointer hover:font-semibold" onClick={handleClick}>Logout</button>
                 </div>
             </header>
