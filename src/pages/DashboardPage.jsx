@@ -1,4 +1,4 @@
-import ClaimCard from "../components/claimCard"
+import ClaimCard from "../components/ClaimCard.jsx"
 import { useNavigate } from 'react-router-dom'
 import data from "../claimsData"
 import ClaimsForm from "../components/ClaimsForm"
@@ -20,18 +20,19 @@ export default function Dashboard() {
         "Rejected": false
     }
     const [filterColor, setFilterColor] = useState(buttonColors)
-    const [claimsData, setClaimsData] = useState(data)
+    const [originalData, setOriginalData] = useState(data)
+    const [claimsData, setClaimsData] = useState(originalData)
     function filterClaim(event) {
-        const buttonValue = event.target.value;
+        const buttonValue = event.target.value
 
-        // Step 1: filter claims
+        // Filter claims
         if (buttonValue === "All") {
-            setClaimsData(data);
+            setClaimsData(originalData)
         } else {
-            setClaimsData(data.filter(claim => claim.status === buttonValue));
+            setClaimsData(originalData.filter(claim => claim.status === buttonValue))
         }
 
-        // Step 2: reset colors and activate only the clicked button
+        // Reset colors and activate only the clicked button
         setFilterColor({
             "All": false,
             "Submitted": false,
@@ -41,7 +42,17 @@ export default function Dashboard() {
             [buttonValue]: true  // highlight the clicked button
         });
     }
-
+    
+    // This function will be passed to the claims card for changing status
+    function handleStatusChange(policyNum, newStatus) {
+        setOriginalData(prevClaims => {
+            const updated = prevClaims.map(claim =>
+                claim.policyNum === policyNum ? { ...claim, status: newStatus } : claim
+            )
+            setClaimsData(updated) // sync claimsData
+            return updated
+        })
+    }
     // Functionality for filtering through the search input
     const [searchQuery, setSearchQuery] = useState("")
     // combine claimsData with search filter
@@ -53,6 +64,7 @@ export default function Dashboard() {
         item.status.toLowerCase().includes(searchQuery.toLowerCase())
     )
 
+
     // Pull claims data to display it on dashboard
     const claims = filteredClaims.map(item => 
         <ClaimCard
@@ -63,6 +75,7 @@ export default function Dashboard() {
             status = {item.status}
             description = {item.description}
             img = {item.imgUrl}
+            onStatusChange={handleStatusChange} // 👈 pass callback
         />)
     
     // Functionality for showing the claims form when you click on "Add New Claim" button
