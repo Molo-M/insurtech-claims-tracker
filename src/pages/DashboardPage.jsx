@@ -95,31 +95,31 @@ export default function Dashboard() {
       }
     return (
         <div className="dashboard_body flex flex-col bg-gray-100 border h-screen">
-            <header className="flex py-3 px-7 items-center justify-end sm:gap-120 text-white bg-gray-700">
+            <header className="flex sm:flex-row flex-col py-3 px-3 sm:px-7 gap-5 sm:gap-30 md:gap-100 sm:items-center justify-end text-white bg-gray-700">
                 <div className="title flex gap-2">
                     <img className="w-5" src="./Logo-edited.png" alt="" />
                     <h1 className="font-semibold text-xl">InsurTech Claims Tracker</h1>
                 </div>
-                <div className="logSearch flex gap-7">
+                <div className="logSearch flex justify-between sm:justify-start sm:gap-7">
                     <input className="border border-gray-300 rounded-sm p-1" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search" />
                     <button className="text-lg cursor-pointer hover:font-semibold" onClick={handleClick}>Logout</button>
                 </div>
             </header>
             <main className="flex flex-col gap-4 items-center py-5 bg-gray-100">
-                <div className="dashboard flex flex-col gap-4">
-                    <div className="header flex justify-between items-center">
+                <div className="dashboard flex flex-col gap-4 px-3">
+                    <div className="header flex flex-col sm:flex-row justify-start sm:justify-between sm:items-center gap-2">
                         <h1 className="text-3xl font-semibold">My Claims</h1>
                         <button onClick={showForm} className="py-1 w-40 cursor-pointer rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border-blue-900">Add New Claim</button>
                     </div>
                     <h2 className="text-gray-400">{claimsData.length} claims submitted</h2>
-                    <nav className="filter flex justify-between mb-5">
+                    <nav className="filter grid grid-cols-3 gap-2 sm:gap-0 sm:flex sm:justify-between sm:mb-5">
                         <button onClick={filterClaim} className={filterColor["All"] ? "bg-gray-200" : "bg-white"} value="All">All</button>
                         <button onClick={filterClaim} className={filterColor["Submitted"] ? "bg-gray-200" : "bg-white"} value="Submitted">Submitted</button>
                         <button onClick={filterClaim} className={filterColor["In Review"] ? "bg-gray-200" : "bg-white"} value="In Review">In Review</button>
                         <button onClick={filterClaim} className={filterColor["Approved"] ? "bg-gray-200" : "bg-white"} value="Approved">Approved</button>
                         <button onClick={filterClaim} className={filterColor["Rejected"] ? "bg-gray-200" : "bg-white"} value="Rejected">Rejected</button>
                     </nav>
-                    <section className="grid grid-cols-2 gap-10 items-start">
+                    <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-10 items-start">
                         {claims}
                     </section>
                 </div>
