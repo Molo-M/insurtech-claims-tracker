@@ -4,6 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/insurtech-claims-tracker/",
   plugins: [react(), tailwindcss()],
-  base: "/insurtech-claims-tracker"
 })
