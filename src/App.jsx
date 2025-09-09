@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <UserTypeContext.Provider value={{ userType, setUserType }}>
-      <Router basename="/insurtech-claims-tracker/">
+      <Router basename="/insurtech-claims-tracker">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
