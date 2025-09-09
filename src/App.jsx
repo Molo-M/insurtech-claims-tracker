@@ -14,6 +14,7 @@ export default function App() {
       <Router basename="/insurtech-claims-tracker">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="insurtech-claims-tracker" element={<LandingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
