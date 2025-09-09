@@ -1,4 +1,6 @@
 import { useState } from "react";
+import logo from '/Logo-edited.png';
+import notebook from "/notebook.png"
 import Footer from "../components/Footer"
 import UserTypeContext from "../utils/UserTypeContext";
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +21,7 @@ export default function LandingPage() {
     return (
         <>
             <header className="flex gap-2 items-center ml-3 sm:ml-58 pt-2 pb-3 sm:pb-10">
-                <img className="w-5" src="/assets/Logo-edited.png" alt="" />
+                <img className="w-5" src={logo} alt="" />
                 <h1 className="font-semibold text-xl">InsurTech Claims Tracker</h1>
             </header>
             <main className='py-5 text-gray-800 flex flex-col sm:flex-row items-center justify-center sm:gap-15 px-10'>
@@ -32,7 +34,7 @@ export default function LandingPage() {
                 </div>
                 </div>
                 <div className="right-hero mt-5 sm:mt-0">
-                <img className='w-80' src="notebook.png" alt="" />
+                <img className='w-80' src={notebook} alt="" />
                 </div>
             </main>
             <Footer />
