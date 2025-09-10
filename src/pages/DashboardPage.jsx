@@ -4,7 +4,12 @@ import data from "../claimsData"
 import ClaimsForm from "../components/ClaimsForm"
 import { useState } from "react"
 
-export default function Dashboard() {
+export default function Dashboard({ setPageType }) {
+    // Functionality for logging out
+    function handleClick(event) {
+        localStorage.setItem("pageType", "LandingPage")
+        setPageType("LandingPage");
+    }
 
     // Functionality for filtering the claim cards
     const buttonColors = {
@@ -97,7 +102,7 @@ export default function Dashboard() {
                 </div>
                 <div className="logSearch flex justify-between sm:justify-start sm:gap-7">
                     <input className="border border-gray-300 rounded-sm p-1" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search" />
-                    <a href="./index.html" className="text-lg cursor-pointer hover:font-semibold">Logout</a>
+                    <button onClick={handleClick} className="text-lg cursor-pointer hover:font-semibold">Logout</button>
                 </div>
             </header>
             <main className="flex flex-col gap-4 items-center py-5 bg-gray-100">

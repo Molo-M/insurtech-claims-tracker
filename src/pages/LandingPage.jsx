@@ -1,8 +1,14 @@
-import logo from '/Logo-edited.png';
+import logo from '/Logo-edited.png'
 import notebook from "/notebook.png"
 import Footer from "../components/Footer"
 
-export default function LandingPage() {
+export default function LandingPage({ setPageType }) {
+    function handleClick(event) {
+        const userValue = event.target.value;
+        localStorage.setItem("userType", userValue);
+        localStorage.setItem("pageType", "Dashboard");
+        setPageType("Dashboard");
+    }
 
     return (
         <>
@@ -15,8 +21,8 @@ export default function LandingPage() {
                 <h1 className='font-bold text-2xl sm:text-5xl'>Simplify Insurance Claims Tracking</h1>
                 <h2 className='text-2xl'>Submit claims, track progress, and stay updated in real time.</h2>
                 <div className="buttons mt-5 flex gap-5">
-                    <a onClick={() => localStorage.setItem("userType", "user")} href="/dashboard.html" className="text-center py-2 w-40 cursor-pointer font-bold rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border-blue-900">Login as User</a>
-                    <a onClick={() => localStorage.setItem("userType", "agent")} href="./dashboard.html" className="text-center py-2 w-40 cursor-pointer font-bold rounded-xl border border-gray-400 hover:bg-gray-100">Login as Agent</a>
+                    <button value="user" onClick={handleClick} className="text-center py-2 w-40 cursor-pointer font-bold rounded-xl border bg-sky-700 hover:bg-sky-800 text-white border-blue-900">Login as User</button>
+                    <button value="agent" onClick={handleClick} className="text-center py-2 w-40 cursor-pointer font-bold rounded-xl border border-gray-400 hover:bg-gray-100">Login as Agent</button>
                 </div>
                 </div>
                 <div className="right-hero mt-5 sm:mt-0">
