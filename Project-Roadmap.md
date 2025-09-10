@@ -4,7 +4,7 @@
 
 ## **Phase 1 — MVP (Core Usability)**
 
-🎯 Goal: Have a working prototype that looks clean and demonstrates the idea.
+Goal: Have a working prototype that looks clean and demonstrates the idea.
 
 * **Landing Page**
 
@@ -25,7 +25,7 @@
 
 ## **Phase 2 — UX Polish**
 
-🎯 Goal: Improve user experience, show recruiters you care about design.
+Goal: Improve user experience, show recruiters you care about design.
 
 * **Responsive UI** (TailwindCSS, mobile-first).
 * **Hover & Active States** for buttons/cards.
@@ -34,9 +34,9 @@
 
 ---
 
-## **Phase 3 — Tracking & Status**
+## **Phase 3 — Tracking & Status (✅ I Stopped Here!)**
 
-🎯 Goal: Make it feel like a real claims app.
+Goal: Make it feel like a real claims app.
 
 * **Claim Details Page**
 
@@ -52,7 +52,7 @@
 
 ## **Phase 4 — Analytics & Insights**
 
-🎯 Goal: Impress with dashboards & data viz.
+Goal: Impress with dashboards & data viz.
 
 * **Analytics Page (for Agent role)**
 
@@ -66,7 +66,7 @@
 
 ## **Phase 5 — Advanced Recruiter-Ready Extras**
 
-🎯 Goal: Look like a SaaS product demo.
+Goal: Look like a SaaS product demo.
 
 * **Authentication Mock**
 
@@ -81,21 +81,6 @@
 * **Dark Mode** toggle (Tailwind).
 
 * **Deploy on GitHub Pages / Vercel** + nice README with screenshots.
-
----
-
-# 📌 Recruiter Checklist
-
-✅ MVP live demo link
-✅ Screenshot in README
-✅ Clean, responsive UI
-✅ Claims tracking timeline
-✅ Charts & data viz
-✅ “Wow” features: role simulation, notifications, dark mode
-
----
-
-👉 With this roadmap, you can stop at **Phase 2 or 3** for a strong project, or push to **Phase 5** to make it portfolio-killer.
 
 
 
