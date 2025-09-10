@@ -7,17 +7,8 @@ import { useState } from "react"
 import UserTypeContext from './utils/UserTypeContext'
 
 export default function App() {
-  // global state for user type
-  const [userType, setUserType] = useState(null);
-
+  
   return (
-    <UserTypeContext.Provider value={{ userType, setUserType }}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </Router>
-    </UserTypeContext.Provider>
+    <LandingPage />
   )
 }
