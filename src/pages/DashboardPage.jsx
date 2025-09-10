@@ -1,16 +1,10 @@
 import ClaimCard from "../components/ClaimCard.jsx"
-// import { useNavigate } from 'react-router-dom'
 import '../index.css'
 import data from "../claimsData"
 import ClaimsForm from "../components/ClaimsForm"
 import { useState } from "react"
 
 export default function Dashboard() {
-    // // Navigation functionalities
-    // const navigate = useNavigate()
-    // const handleClick = () => {
-    // navigate('/'); // Navigates to the /dashboard route
-    // }
 
     // Functionality for filtering the claim cards
     const buttonColors = {

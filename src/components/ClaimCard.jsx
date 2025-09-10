@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react"
-// import { useContext } from "react"
-// import UserTypeContext from "../utils/UserTypeContext.js"
 
 export default function ClaimCard(props) {
     // Functionality for getting the user type
@@ -15,8 +13,6 @@ export default function ClaimCard(props) {
 
     // Functionality for updating claims stauts:
     const [newStatus, setNewStatus] = useState(props.status)
-    // getting user type: regular user (false) and agent (true)
-    // const { userType } = useContext(UserTypeContext)
 
     // state for displaying status drop-down options
     const [showDropdown, setShowDropdown] = useState(false)
