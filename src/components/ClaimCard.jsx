@@ -1,12 +1,22 @@
-import { useState } from "react"
-import { useContext } from "react"
-import UserTypeContext from "../utils/UserTypeContext.js"
+import { useState, useEffect } from "react"
+// import { useContext } from "react"
+// import UserTypeContext from "../utils/UserTypeContext.js"
 
 export default function ClaimCard(props) {
+    // Functionality for getting the user type
+    const [userType, setUserType] = useState(null);
+
+    useEffect(() => {
+        const type = localStorage.getItem("userType");
+        setUserType(type); // "user" or "agent"
+    }, []);
+    
+    const userAgent = userType === "agent"
+
     // Functionality for updating claims stauts:
     const [newStatus, setNewStatus] = useState(props.status)
     // getting user type: regular user (false) and agent (true)
-    const { userType } = useContext(UserTypeContext)
+    // const { userType } = useContext(UserTypeContext)
 
     // state for displaying status drop-down options
     const [showDropdown, setShowDropdown] = useState(false)
@@ -53,7 +63,7 @@ export default function ClaimCard(props) {
                 <p className="">{props.description}</p>
             </div>}
             <button onClick={toggleDetails} className="border border-gray-300 shadow-sm p-2 cursor-pointer hover:bg-gray-100">{showDetails ? "Hide" : "Show"} Details</button>
-            {userType && <button onClick={updateStatus} className="border border-gray-300 bg-gray-600 text-white shadow-sm p-2 cursor-pointer hover:bg-gray-700">{showDropdown ? "Set" : "Update"} Status</button>}
+            {userAgent && <button onClick={updateStatus} className="border border-gray-300 bg-gray-600 text-white shadow-sm p-2 cursor-pointer hover:bg-gray-700">{showDropdown ? "Set" : "Update"} Status</button>}
         </article>
     )
 }

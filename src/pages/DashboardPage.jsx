@@ -1,15 +1,16 @@
 import ClaimCard from "../components/ClaimCard.jsx"
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
+import '../index.css'
 import data from "../claimsData"
 import ClaimsForm from "../components/ClaimsForm"
 import { useState } from "react"
 
 export default function Dashboard() {
-    // Navigation functionalities
-    const navigate = useNavigate()
-    const handleClick = () => {
-    navigate('/'); // Navigates to the /dashboard route
-    }
+    // // Navigation functionalities
+    // const navigate = useNavigate()
+    // const handleClick = () => {
+    // navigate('/'); // Navigates to the /dashboard route
+    // }
 
     // Functionality for filtering the claim cards
     const buttonColors = {
@@ -102,7 +103,7 @@ export default function Dashboard() {
                 </div>
                 <div className="logSearch flex justify-between sm:justify-start sm:gap-7">
                     <input className="border border-gray-300 rounded-sm p-1" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search" />
-                    <button className="text-lg cursor-pointer hover:font-semibold" onClick={handleClick}>Logout</button>
+                    <a href="./index.html" className="text-lg cursor-pointer hover:font-semibold">Logout</a>
                 </div>
             </header>
             <main className="flex flex-col gap-4 items-center py-5 bg-gray-100">
