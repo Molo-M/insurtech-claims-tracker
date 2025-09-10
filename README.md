@@ -59,9 +59,10 @@ This project was built with **React**, **TailwindCSS**, **HTML**, and **JavaScri
 
 ![landing page](<landing page.png>)
 
-### Dashboard Page
 
-![dashboard](user-dashboard-2.png)
+### Dashboard Page
+![dashboard screenshot](<Screenshot 2025-09-10 195937.png>)
+
 
 ## Getting Started
 
